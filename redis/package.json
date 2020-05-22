@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "redis": "^2.8.0"
+    "redis": "^2.8.0",
+    "lodash": "^4.17.4"
   }
 }
