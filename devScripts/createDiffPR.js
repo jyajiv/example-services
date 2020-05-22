@@ -66,16 +66,17 @@ const gitPushCallback = (callback) => (err, stdOut, stdIn) => {
   console.log(
     `hub pull-request -f -b ${currentUserFork}:${previousBranch} -h ${currentUserFork}:${currentBranch} -m '${pullRequestMessage}'`
   );
-  exec(
-    `hub pull-request -f -b ${currentUserFork}:${previousBranch} -h ${currentUserFork}:${currentBranch} -m '${pullRequestMessage}'`,
-    (error, output, input) => {
-      if (error) {
-        console.log("Error creating PR - ", error);
-      } else {
-        console.log("Pull request created successfully");
-      }
-    }
-  );
+  console.log("Pull request created successfully");
+  // exec(
+  //   `hub pull-request -f -b ${currentUserFork}:${previousBranch} -h ${currentUserFork}:${currentBranch} -m '${pullRequestMessage}'`,
+  //   (error, output, input) => {
+  //     if (error) {
+  //       console.log("Error creating PR - ", error);
+  //     } else {
+  //       console.log("Pull request created successfully");
+  //     }
+  //   }
+  // );
 };
 
 function getGitUserDetailsCallback() {
