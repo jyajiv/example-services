@@ -58,6 +58,7 @@ function createPR(sourceBranch, destinationBranch) {
 const gitPushCallback = (callback) => (err, stdOut, stdIn) => {
   if (err) {
   // if (!_.includes(_.get(err, "message", ""), "No staged files")) {
+      console.log(err);
       throw err;
    //  }
   }
