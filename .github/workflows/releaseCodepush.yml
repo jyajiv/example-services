@@ -19,6 +19,7 @@ jobs:
         with:
           ref: release/codepush_02
           fetch-depth: 0
+      - name: fetch
         run: |
            git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
       - uses: geertvdc/setup-hub@master
