@@ -80,7 +80,7 @@ const gitPushCallback = (callback) => (err, stdOut, stdIn) => {
 function getGitUserDetailsCallback() {
   console.log("Fetch git repo details successfull");
   console.log(
-    `git add . && git commit -m '${pullRequestMessage}' && git push origin ${currentBranch}`
+    `git add . && git commit -m '${pullRequestMessage}' && git push origin HEAD:${currentBranch}`
   );
   fs.writeFile("./test.txt", `this is the diff report${new Date()}`, (err) => {
     console.log("File created", err);
