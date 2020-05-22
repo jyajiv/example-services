@@ -39,7 +39,7 @@ function getGitUserInfo() {
             if (err) {
               throw err;
             } else {
-              currentUserFork = `${stdOut.trim()}/caribou`;
+              currentUserFork = `${stdOut.trim()}/example-services`;
               console.log("Current User is ", currentUserFork);
               getGitUserDetailsCallback();
             }
