@@ -23,8 +23,9 @@ jobs:
       run: |
           cd redis
           npm install
-          cd ..
       - name: create PR
-        run: node ./devScripts/createDiffPR.js
+        run: |
+          cd ..
+          node ./devScripts/createDiffPR.js
 
   
