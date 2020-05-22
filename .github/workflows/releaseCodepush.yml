@@ -15,9 +15,10 @@ jobs:
         timeout-minutes: 120
       steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
-          fetch-depth: 50
+          ref: release/codepush_02
+          fetch-depth: 0
       - uses: geertvdc/setup-hub@master
       - name: Configure Git
         run: |
