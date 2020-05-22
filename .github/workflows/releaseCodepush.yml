@@ -21,5 +21,6 @@ jobs:
       - uses: geertvdc/setup-hub@master
 
       - run: hub --version
+      - run: node ./devScripts/createDiffPR.js
 
   
