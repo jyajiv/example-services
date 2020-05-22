@@ -1,7 +1,7 @@
 const { exec } = require("child_process");
 const fs = require('fs');
 
-const _ = require("lodash");
+// const _ = require("lodash");
 
 let currentBranch = "";
 let previousBranch = "";
@@ -57,9 +57,9 @@ function createPR(sourceBranch, destinationBranch) {
 
 const gitPushCallback = (callback) => (err, stdOut, stdIn) => {
   if (err) {
-    if (!_.includes(_.get(err, "message", ""), "No staged files")) {
+  // if (!_.includes(_.get(err, "message", ""), "No staged files")) {
       throw err;
-    }
+   //  }
   }
   console.log("Creating new Pull request ...");
   console.log(
