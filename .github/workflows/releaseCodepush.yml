@@ -20,9 +20,9 @@ jobs:
           fetch-depth: 50
       - uses: geertvdc/setup-hub@master
       - name: Install packages
-        run: cd redis/
-        run: npm install
-        run: cd ..
+      - run: cd redis/
+      - run: npm install
+      - run: cd ..
       - run: hub --version
       - run: node ./devScripts/createDiffPR.js
 
