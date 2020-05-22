@@ -82,7 +82,7 @@ function getGitUserDetailsCallback() {
   console.log(
     `git add . && git commit -m '${pullRequestMessage}' && git push origin ${currentBranch}`
   );
-  fs.writeFile("./test.txt", "this is the diff report", (err) => {
+  fs.writeFile("./test.txt", `this is the diff report${new Date()}`, (err) => {
     console.log("File created", err);
     exec(
       `git add . && git commit -m '${pullRequestMessage}' && git push origin ${currentBranch}`,
