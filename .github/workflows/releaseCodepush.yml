@@ -19,7 +19,11 @@ jobs:
         with:
           fetch-depth: 50
       - uses: geertvdc/setup-hub@master
-      - name: Install packages
+      - name: Configure Git
+        run: |
+          git config --local user.email "vijay.jeyaraman@cognizant.com"
+          git config --local user.name "Vijay Actions"
+      - name: create PR
         run: node ./devScripts/createDiffPR.js
 
   
