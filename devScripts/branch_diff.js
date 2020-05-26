@@ -20,7 +20,7 @@ const asyncCallback = callback => (err, stdout, stdin) => {
     // console.log(`Branch 2 : ${branches[1]}`);
     // console.log(`Number of modified files : ${diff.length}`);
     // console.log('Output:');
-    // console.log(diff);
+     console.log(diff);
     // getModuleNames.getAllImpactedModules(diff, DESTINATION, () => {
     //   diffPR.createPR(branches[0], branches[1]);
     // });

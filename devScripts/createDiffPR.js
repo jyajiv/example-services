@@ -1,7 +1,7 @@
 const { exec } = require("child_process");
 const fs = require('fs');
 
-const _ = require("lodash");
+// const _ = require("lodash");
 
 let currentBranch = "";
 let previousBranch = "";
@@ -57,35 +57,37 @@ function createPR(sourceBranch, destinationBranch) {
 
 const gitPushCallback = (callback) => (err, stdOut, stdIn) => {
   if (err) {
-    if (!_.includes(_.get(err, "message", ""), "No staged files")) {
+  // if (!_.includes(_.get(err, "message", ""), "No staged files")) {
+      console.log(err);
       throw err;
-    }
+   //  }
   }
   console.log("Creating new Pull request ...");
   console.log(
-    `hub pull-request -f -b ${currentUserFork}:${currentBranch} -h ${currentUserFork}:${currentBranch} --browse -m '${pullRequestMessage}'`
+    `hub pull-request -f -b ${currentUserFork}:${previousBranch} -h ${currentUserFork}:${currentBranch} -m '${pullRequestMessage}'`
   );
-  exec(
-    `hub pull-request -f -b ${currentUserFork}:${currentBranch} -h ${currentUserFork}:${currentBranch} --browse -m '${pullRequestMessage}'`,
-    (error, output, input) => {
-      if (error) {
-        console.log("Error creating PR - ", error);
-      } else {
-        console.log("Pull request created successfully");
-      }
-    }
-  );
+  console.log("Pull request created successfully");
+  // exec(
+  //   `hub pull-request -f -b ${currentUserFork}:${previousBranch} -h ${currentUserFork}:${currentBranch} -m '${pullRequestMessage}'`,
+  //   (error, output, input) => {
+  //     if (error) {
+  //       console.log("Error creating PR - ", error);
+  //     } else {
+  //       console.log("Pull request created successfully");
+  //     }
+  //   }
+  // );
 };
 
 function getGitUserDetailsCallback() {
   console.log("Fetch git repo details successfull");
   console.log(
-    `git add . && git commit -m '${pullRequestMessage}' && git push origin ${currentBranch}`
+    `git add . && git commit -m '${pullRequestMessage}' && git push origin HEAD:${currentBranch}`
   );
-  fs.writeFile("./test.txt", "this is the diff report", (err) => {
+  fs.writeFile("./test.txt", `this is the diff report${new Date()}`, (err) => {
     console.log("File created", err);
     exec(
-      `git add . && git commit -m '${pullRequestMessage}' && git push origin ${currentBranch}`,
+      `git add . && git commit -m '${pullRequestMessage}' && git push origin HEAD:${currentBranch}`,
       gitPushCallback()
     );
   });
